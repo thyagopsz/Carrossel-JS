@@ -44,8 +44,7 @@ function limparSelecao(bullets){
     })
 }
 function passarImagem(comando){
-    const bullets = document.querySelectorAll('.bullet');
-    limparSelecao(bullets);
+   
     if(comando == "proximo"){
         console.log('pos prox (antiga)', pos);
         if(pos >= images.length - 1){
@@ -65,12 +64,15 @@ function passarImagem(comando){
     }
 
     inserirImagem(pos);
-    bullets[pos].classList.add('selected');
+   
 }
 
 function inserirImagem(pos){
+    const bullets = document.querySelectorAll('.bullet');
+    limparSelecao(bullets);
     const imageContainer = document.querySelector('.image-container');
     imageContainer.style.backgroundImage = `url('${images[pos].imagem}')`;
+    bullets[pos].classList.add('selected');
 }
 
 btnAnterior.addEventListener('click' , () => {
